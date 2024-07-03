@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="index.css" type="text/css" />
+        <title>Joshua Leeman Website</title>
+        <script>
+            fetch("header.html")
+                .then((res) => res.text())
+                .then((data) => {
+                    document.getElementById("header").innerHTML = data;
+                });
+            fetch("footer.html")
+                .then((res) => res.text())
+                .then((data) => {
+                    document.getElementById("footer").innerHTML = data;
+
+                    document
+                        .querySelector(".back-to-top")
+                        .addEventListener("click", function (e) {
+                            e.preventDefault();
+                            const scrollTop =
+                                window.pageYOffset ||
+                                document.documentElement.scrollTop;
+                            if (scrollTop > 0) {
+                                window.scrollTo({
+                                    top: 0,
+                                    behavior: "smooth",
+                                });
+                            }
+                        });
+                });
+        </script>
+    </head>
+    <body>
+        <div id="header"></div>
+        <h4>Welcome</h4>
+        <div class="rounded-image">
+            <img src="/images/Headshot.jpg" alt="Headshot" />
+        </div>
+        <p>
+            In the 'Work' section, you can find three of my proudest projects
+            from my various internships and extracurriculars throughout my
+            college experience. The three projects are the National Hillel
+            Basketball Tournament App, the redesigned NORAD Cache Jobs website
+            at Major League Baseball, and my custom algorithm for the Hapoel
+            Jerusalem Soccer Team.
+        </p>
+        <p>
+            All of these projects showcase my ability to develop software
+            applications that solve pertinent issues around me. Specifically,
+            each of these projects highlight my ability to utilize my existing
+            foundation of computer programming languages while expanding my
+            knowledge by quickly learning other required components to deliver
+            the best product. This is my portfolio of front-end and full-stack
+            development projects as an aspiring Software Engineer.
+        </p>
+        <div id="footer"></div>
+    </body>
+</html>

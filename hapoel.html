@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="index.css" type="text/css" />
+        <script>
+            fetch("header.html")
+                .then((res) => res.text())
+                .then((data) => {
+                    document.getElementById("header").innerHTML = data;
+                });
+            fetch("footer.html")
+                .then((res) => res.text())
+                .then((data) => {
+                    document.getElementById("footer").innerHTML = data;
+
+                    document
+                        .querySelector(".back-to-top")
+                        .addEventListener("click", function (e) {
+                            e.preventDefault();
+                            const scrollTop =
+                                window.pageYOffset ||
+                                document.documentElement.scrollTop;
+                            if (scrollTop > 0) {
+                                window.scrollTo({
+                                    top: 0,
+                                    behavior: "smooth",
+                                });
+                            }
+                        });
+                });
+        </script>
+    </head>
+    <body>
+        <div id="header"></div>
+        <h4>Hapoel Jerusalem: Data to Graphs</h4>
+        <img src="/images/FC_Hapoel_Jerusalem_2021.png" alt="NHBTLogo" />
+        <p>
+            The Head Coach of the Hapoel Jerusalem Soccer Team has hours and
+            hours of game footage to scour through and needs to identify trends
+            that lead to team success. However, no one has enough time to sit
+            and watch film for so how long. My boss, the Head of Data Analytics,
+            tasked me with summarizing all the data into the game's most crucial
+            moments; an exercise in moving from data processing to data
+            visualization.
+        </p>
+        <p>
+            I was provided with a sample XML file, unique to a game, consisting
+            of all the data from every single play, including the smallest
+            details of who passed the ball to who, where on the field, and at
+            what time of the game. I created a Python algorithm that parsed this
+            data, stored it all in a dataset, and converted it into graphs
+            depicting all the team's shots on goal, as seen in the diagrams
+            below. My experience with string and array manipulation helped me
+            organize the data for my needs.
+        </p>
+        <p>
+            I color coded each line on the graph to reflect a dribble, pass, and
+            shot, respectively, created a legend that documented the chronology
+            of plays within the possession, and added a title that described the
+            moment, including who shot the ball, the time elapsed, and the
+            result of the play. Now, the head coach can upload an XML file to my
+            algorithm and have all the important moments of the game to analyze
+            within seconds. He can then identify trends and patterns for team
+            success and make decisions more efficiently.
+        </p>
+        <a
+            href="https://github.com/joshleeman11/Hapoel-Jerusalem-Shots"
+            target="_blank"
+            ><p>Link to GitHub Repository</p></a
+        >
+        <div class="image-grid">
+            <div class="hapoel-image-grid-item">
+                <img src="/images/HapoelPageScreenshot1.png" alt="Image 1" />
+            </div>
+            <div class="hapoel-image-grid-item">
+                <img src="/images/HapoelPageScreenshot2.png" alt="Image 2" />
+            </div>
+        </div>
+        <div id="footer"></div>
+    </body>
+</html>

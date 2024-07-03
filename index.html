@@ -1,10 +1,76 @@
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en-US">
     <head>
-        <meta charset="utf-8">
-        <title>Joshua Leeman</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="index.css" type="text/css" />
+        <title>Joshua Leeman Website</title>
+        <script>
+            fetch("header.html")
+                .then((res) => res.text())
+                .then((data) => {
+                    document.getElementById("header").innerHTML = data;
+                });
+        </script>
     </head>
-
     <body>
-        <h1>Welcome to my website</h1>
+        <div id="header"></div>
+        <div id="projects">
+            <div class="project">
+                <a href="/nhbt-app.html"
+                    ><img src="/images/NHBTLogo.png" alt="Logo" />
+                    <img
+                        class="hoverImage"
+                        src="/images/NHBTStandings.PNG"
+                        alt="Standings"
+                    />
+                    <p class="project-title">
+                        NHBT App <br /><span class="project-year"
+                            >2023-2024</span
+                        >
+                    </p>
+                </a>
+            </div>
+            <div class="project">
+                <a href="/mlb-webpage.html"
+                    ><img
+                        src="/images/kisspng-mlb-new-york-mets-world-baseball-classic-major-lea-bet-5ac07113332e23.0834441615225612992096.png"
+                        alt="Logo"
+                    />
+                    <img
+                        class="hoverImage"
+                        src="/images/MLBScreenshot.png"
+                        alt="Webpage"
+                    />
+                    <p class="project-title">
+                        Redesigned MLB Webpage<br /><span class="project-year"
+                            >2023</span
+                        >
+                    </p>
+                </a>
+            </div>
+            <div class="project">
+                <a href="/hapoel.html"
+                    ><img
+                        src="/images/FC_Hapoel_Jerusalem_2021.png"
+                        alt="Logo"
+                    />
+                    <img
+                        class="hoverImage"
+                        src="/images/HapoelScreenshot.png"
+                        alt="Possession Graph"
+                        style="transform: translateY(35px) scale(1.7);"
+                    />
+                    <div class="project-label">
+                        <p class="project-title">
+                            Hapoel Jerusalem: Data to Graphs<br /><span
+                                class="project-year"
+                                >2022</span
+                            >
+                        </p>
+                    </div>
+                </a>
+            </div>
+        </div>
     </body>
 </html>

@@ -1,0 +1,109 @@
+body {
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+}
+
+h4 {
+    font-weight: 300;
+    font-size: xx-large;
+}
+
+p {
+    font-weight: 300;
+    font-size: large;
+    color: #9d9d95;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.rounded-image img{
+    border-radius: 100px;
+    width: 20%;
+}
+
+.image-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.image-grid-item {
+    flex: 0 0 calc(33.33% - 20px);
+    margin-bottom: 20px;
+}
+.hapoel-image-grid-item {
+    flex: 0 0 calc(50% - 20px);
+    margin-bottom: 20px;
+}
+
+.image-grid-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.hapoel-image-grid-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+img {
+    width: 10%;
+}
+
+#projects {
+    display: flex;
+    padding-top: 5%;
+    padding-left: 5%;
+}
+
+.project {
+    position: relative;
+    margin-right: 5%;
+    width: 30%;
+    transition: background 0.2s ease, color 0.2s ease;
+    overflow: hidden;
+}
+
+.project img {
+    width: 100%;
+    height:auto;
+}
+
+.project-title {
+    position: absolute;
+    bottom: 1px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 100%;
+    font-size: 18px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px;
+    text-align: center;
+}
+
+.project-year {
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.hoverImage {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    top: 0;
+    left: 0;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s ease; /* Smooth transition */
+}
+
+.project:hover img:first-child {
+    opacity: 0; /* Hide the first image on hover */
+}
+
+.project:hover .hoverImage {
+    position:absolute;
+    opacity:0.8;
+}

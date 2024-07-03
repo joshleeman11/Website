@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="index.css" type="text/css" />
+        <script>
+            fetch("header.html")
+                .then((res) => res.text())
+                .then((data) => {
+                    document.getElementById("header").innerHTML = data;
+                });
+            fetch("footer.html")
+                .then((res) => res.text())
+                .then((data) => {
+                    document.getElementById("footer").innerHTML = data;
+
+                    document
+                        .querySelector(".back-to-top")
+                        .addEventListener("click", function (e) {
+                            e.preventDefault();
+                            const scrollTop =
+                                window.pageYOffset ||
+                                document.documentElement.scrollTop;
+                            if (scrollTop > 0) {
+                                window.scrollTo({
+                                    top: 0,
+                                    behavior: "smooth",
+                                });
+                            }
+                        });
+                });
+        </script>
+    </head>
+    <body>
+        <div id="header"></div>
+        <h4>NHBT App</h4>
+        <img src="/images/NHBTLogo.png" alt="NHBTLogo" />
+        <a
+            href="https://apps.apple.com/us/app/hillel-tournament/id1615144055"
+            target="_blank"
+            ><p>Link to App Store</p></a
+        >
+        <p>
+            The National Hillel Basketball Tournament (NHBT) App is your
+            one-stop-shop for all the action throughout the tournament. You can
+            track live game updates, standings, brackets, schedules, player and
+            team information, and statistics. My teammate and I are proud to say
+            that over 1000 players, fans, and family from across the country
+            enjoyed the NHBT App over the course of the weekend tournament and
+            we look to build upon our success for next year.
+        </p>
+        <p>
+            We used Flutter to build our app for iOS and Android users and its
+            Dart language to code our front-end user interface. We then
+            integrated our front-end with our back-end Firebase database to
+            share all the live information with our users. In addition to the
+            full-stack logic that was required to build our app, one of the
+            biggest lessons I learned was the importance of communication
+            between organizational teams in delivering the best product. We were
+            in constant communication with the game operations team to ensure
+            our app's features aligned with the tournament rules. For example,
+            we needed to know how many teams there would be in each tier of
+            standings. We also had to know how many men and women tiers there'd
+            be. Lastly, we had to confirm the games would consist of halves
+            rather than quarters and which games would track assists and
+            rebounds, in addition to points and fouls.
+        </p>
+        <div class="image-grid">
+            <div class="image-grid-item">
+                <img src="/images/NHBTHomePage.jpeg" alt="Image 1" />
+            </div>
+            <div class="image-grid-item">
+                <img src="/images/NHBTBracket.jpeg" alt="Image 2" />
+            </div>
+            <div class="image-grid-item">
+                <img src="/images/NHBTStandings.PNG" alt="Image 3" />
+            </div>
+            <div class="image-grid-item">
+                <img src="/images/NHBTTeamsPage.PNG" alt="Image 4" />
+            </div>
+            <div class="image-grid-item">
+                <img src="/images/NHBTStats.PNG" alt="Image 5" />
+            </div>
+            <div class="image-grid-item">
+                <img src="/images/NHBTTeamPage.PNG" alt="Image 6" />
+            </div>
+        </div>
+        <div id="footer"></div>
+    </body>
+</html>

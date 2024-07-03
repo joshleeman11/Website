@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="index.css" type="text/css" />
+        <script>
+            fetch("header.html")
+                .then((res) => res.text())
+                .then((data) => {
+                    document.getElementById("header").innerHTML = data;
+                });
+            fetch("footer.html")
+                .then((res) => res.text())
+                .then((data) => {
+                    document.getElementById("footer").innerHTML = data;
+
+                    document
+                        .querySelector(".back-to-top")
+                        .addEventListener("click", function (e) {
+                            e.preventDefault();
+                            const scrollTop =
+                                window.pageYOffset ||
+                                document.documentElement.scrollTop;
+                            if (scrollTop > 0) {
+                                window.scrollTo({
+                                    top: 0,
+                                    behavior: "smooth",
+                                });
+                            }
+                        });
+                });
+        </script>
+    </head>
+    <body>
+        <div id="header"></div>
+        <h4>Redesigned MLB Webpage</h4>
+        <img
+            src="/images/kisspng-mlb-new-york-mets-world-baseball-classic-major-lea-bet-5ac07113332e23.0834441615225612992096.png"
+            alt="NHBTLogo"
+        />
+        <p>
+            As a Software Engineer Intern on MLB's Data Platform team, our goal
+            was to ensure the data that fans see on popular websites, like
+            MLB.com, accurately updated constantly. Typically, data is kept in a
+            computer's cache if we want it to reload immediately. The downside
+            is that data can't be updated while it is in the cache.
+        </p>
+        <p>
+            So what happens when a player hits a home run and his stats need to
+            be updated immediately? My job surrounded an internal website that
+            was responsible for clearing data from the cache when it needed to
+            be updated.
+        </p>
+        <p>
+            I was tasked with redesigning this website to make it more
+            user-friendly and allow employees to clear a robust amount data from
+            the cache more efficiently.
+        </p>
+        <p>
+            I used HTML, Javascript, and React to implement the numerous
+            features, as seen below in the video and screenshots. HTML helped me
+            organize the page into 'Required' and 'Optional' parameters that
+            previously hadn't existed before. It also helped me highlight
+            incorrectly inputted text fields.
+        </p>
+        <p>
+            Additionally, I used Javascript to validate all user input.
+            Specifically, I used certain libraries and other internal MLB APIs
+            to check whether a certain sportId or leagueId, for example, matched
+            a currently existing one. I also used Javascript to code a file
+            upload feature that parsed an uploaded excel file with data to be
+            submitted all at once.
+        </p>
+        <p>
+            Lastly, I used React to track the state of the page in order to
+            notify the user of any missing required parameters and disabled the
+            'Submit' button accordingly to prevent any invalid submissions.
+        </p>
+        <video width="800" controls>
+            <source src="images/Tech Intern Presentation Demo copy.mov" type="video/mp4" />
+        </video>
+        <div class="image-grid">
+            <div class="image-grid-item">
+                <img src="/images/MLBPageScreenshot1.PNG" alt="Image 1" />
+            </div>
+            <div class="image-grid-item">
+                <img src="/images/MLBPageScreenshot2.PNG" alt="Image 2" />
+            </div>
+            <div class="image-grid-item">
+                <img src="/images/MLBPageScreenshot3.PNG" alt="Image 3" />
+            </div>
+        </div>
+        <div id="footer"></div>
+    </body>
+</html>

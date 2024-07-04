@@ -31,14 +31,14 @@
     text-decoration: none;
 }
 
-div a:hover {
+#nav a:hover {
     color: #121211;
     font-style: normal;
     font-weight: 300;
     text-transform: none;
 }
 
-div a:focus {
+#nav a.active {
     color: #121211;
     font-style: normal;
     font-weight: 300;

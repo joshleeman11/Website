@@ -32,14 +32,14 @@
 }
 
 div a:hover {
-    color: #444444;
+    color: #121211;
     font-style: normal;
     font-weight: 300;
     text-transform: none;
 }
 
-div a.active {
-    color: #444444;
+div a:focus {
+    color: #121211;
     font-style: normal;
     font-weight: 300;
     text-transform: none;

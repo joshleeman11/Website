@@ -1,50 +1,42 @@
-#header {
-    background-color: #f3f3f2;
-    padding-bottom: 70px;
-    padding-top: 70px;
+/* Header */
+#header .site-header {
+    background: linear-gradient(180deg, #fafaf9 0%, #f0eeeb 100%);
+    padding: 2.5rem 1.5rem 3rem;
     text-align: center;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 18px;
-    font-style: normal;
+    font-family: "DM Sans", "Segoe UI", system-ui, sans-serif;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+#header .site-name {
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: #1a1a1a;
+    margin-bottom: 0.5rem;
+}
+
+#header .site-nav {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+#header .nav-link {
+    color: #6b6b6b;
+    font-size: 1rem;
     font-weight: 500;
-    line-height: 40px;
-}
-
-.page-title {
-    color: #bbbbbb;
-    font-size: 40px;
-    font-style: normal;
-    font-weight: 300;
-    line-height: 40px;
-    text-transform: none;
-    padding-right: 50px;
     text-decoration: none;
+    padding: 0.25rem 0;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
 }
 
-.page-title-last {
-    color: #bbbbbb;
-    font-size: 40px;
-    font-style: normal;
-    font-weight: 300;
-    line-height: 40px;
-    text-transform: none;
-    text-decoration: none;
+#header .nav-link:hover {
+    color: #1a1a1a;
 }
 
-#nav a:hover {
-    color: #121211;
-    font-style: normal;
-    font-weight: 300;
-    text-transform: none;
-}
-
-#nav a.active {
-    color: #121211;
-    font-style: normal;
-    font-weight: 300;
-    text-transform: none;
-}
-
-#nav {
-    padding-top: 20px;
+#header .nav-link.active {
+    color: #1a1a1a;
+    border-bottom-color: #1a1a1a;
 }

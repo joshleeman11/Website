@@ -3,18 +3,20 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="header.css" type="text/css" />
         <link rel="stylesheet" href="index.css" type="text/css" />
-        <title>Joshua Leeman Website</title>
+        <link rel="stylesheet" href="footer.css" type="text/css" />
+        <title>Joshua Leeman · Welcome</title>
         <script>
             fetch("header.html")
                 .then((res) => res.text())
                 .then((data) => {
                     document.getElementById("header").innerHTML = data;
                     const navLinks = document.querySelectorAll("#nav a");
+                    const path = window.location.pathname || "";
                     navLinks.forEach((link) => {
-                        if (link.href === window.location.href) {
-                            link.classList.add("active");
-                        }
+                        const href = link.getAttribute("href") || "";
+                        if (path.endsWith(href)) link.classList.add("active");
                     });
                 })
                 .catch((error) =>
@@ -27,7 +29,7 @@
 
                     document
                         .querySelector(".back-to-top")
-                        .addEventListener("click", function (e) {
+                        ?.addEventListener("click", function (e) {
                             e.preventDefault();
                             const scrollTop =
                                 window.pageYOffset ||
@@ -44,27 +46,25 @@
     </head>
     <body>
         <div id="header"></div>
-        <h4>Welcome</h4>
-        <div class="rounded-image">
-            <img src="/images/Headshot.jpg" alt="Headshot" />
-        </div>
-        <p>
-            In the 'Work' section, you can find three of my proudest projects
-            from my various internships and extracurriculars throughout my
-            college experience. The three projects are the National Hillel
-            Basketball Tournament App, the redesigned NORAD Cache Jobs website
-            at Major League Baseball, and my custom algorithm for the Hapoel
-            Jerusalem Soccer Team.
-        </p>
-        <p>
-            All of these projects showcase my ability to develop software
-            applications that solve pertinent issues. Specifically, each of
-            these projects highlight my ability to utilize my existing
-            foundation of computer programming languages while expanding my
-            knowledge by quickly learning other required components to deliver
-            the best product. This is my portfolio of front-end and full-stack
-            development projects as a Software Engineer.
-        </p>
+        <main class="page-content">
+            <div class="rounded-image">
+                <img src="images/Headshot.jpg" alt="Headshot" />
+            </div>
+            <p>
+                In the Work section, you can find three of my proudest projects
+                from my various internships and extracurriculars throughout my
+                college experience: the National Hillel Basketball Tournament App,
+                the redesigned NORAD Cache Jobs website at Major League Baseball,
+                and a coaching visualization tool for the Hapoel Jerusalem Soccer Team.
+            </p>
+            <p>
+                These projects showcase my ability to develop software
+                applications that solve real problems—using my foundation in
+                programming while quickly learning new tools to deliver strong
+                products. This is my portfolio of full-stack
+                development work as a Software Engineer.
+            </p>
+        </main>
         <div id="footer"></div>
     </body>
 </html>

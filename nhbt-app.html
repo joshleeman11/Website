@@ -2,45 +2,42 @@
 <html lang="en-US">
     <head>
         <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="header.css" type="text/css" />
         <link rel="stylesheet" href="index.css" type="text/css" />
+        <link rel="stylesheet" href="footer.css" type="text/css" />
+        <title>NHBT App · Joshua Leeman</title>
         <script>
             fetch("header.html")
                 .then((res) => res.text())
                 .then((data) => {
                     document.getElementById("header").innerHTML = data;
+                    const navLinks = document.querySelectorAll("#nav a");
+                    const path = window.location.pathname || "";
+                    navLinks.forEach((link) => {
+                        if (path.endsWith(link.getAttribute("href") || "")) link.classList.add("active");
+                    });
                 });
             fetch("footer.html")
                 .then((res) => res.text())
                 .then((data) => {
                     document.getElementById("footer").innerHTML = data;
-
-                    document
-                        .querySelector(".back-to-top")
-                        .addEventListener("click", function (e) {
-                            e.preventDefault();
-                            const scrollTop =
-                                window.pageYOffset ||
-                                document.documentElement.scrollTop;
-                            if (scrollTop > 0) {
-                                window.scrollTo({
-                                    top: 0,
-                                    behavior: "smooth",
-                                });
-                            }
-                        });
+                    document.querySelector(".back-to-top")?.addEventListener("click", function (e) {
+                        e.preventDefault();
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                    });
                 });
         </script>
     </head>
-    <body>
+    <body class="project-detail">
         <div id="header"></div>
-        <h4>NHBT App</h4>
-        <img src="/images/NHBTLogo.png" alt="NHBTLogo" />
-        <a
-            href="https://apps.apple.com/us/app/hillel-tournament/id1615144055"
-            target="_blank"
-            ><p>Link to App Store</p></a
-        >
-        <p>
+        <main class="page-content">
+            <h4>NHBT App</h4>
+            <div class="hero-image">
+                <img src="images/NHBTLogo.png" alt="NHBT App logo" />
+            </div>
+            <a href="https://apps.apple.com/us/app/hillel-tournament/id1615144055" target="_blank" rel="noopener">Link to App Store</a>
+            <p>
             The National Hillel Basketball Tournament (NHBT) App is your
             one-stop-shop for all the action throughout the tournament. You can
             track live game updates, standings, brackets, schedules, player and
@@ -66,24 +63,25 @@
         </p>
         <div class="image-grid">
             <div class="image-grid-item">
-                <img src="/images/NHBTHomePage.jpeg" alt="Image 1" />
+                <img src="images/NHBTHomePage.jpeg" alt="NHBT home screen" />
             </div>
             <div class="image-grid-item">
-                <img src="/images/NHBTBracket.jpeg" alt="Image 2" />
+                <img src="images/NHBTBracket.jpeg" alt="Tournament bracket" />
             </div>
             <div class="image-grid-item">
-                <img src="/images/NHBTStandings.PNG" alt="Image 3" />
+                <img src="images/NHBTStandings.PNG" alt="Standings" />
             </div>
             <div class="image-grid-item">
-                <img src="/images/NHBTTeamsPage.PNG" alt="Image 4" />
+                <img src="images/NHBTTeamsPage.PNG" alt="Teams list" />
             </div>
             <div class="image-grid-item">
-                <img src="/images/NHBTStats.PNG" alt="Image 5" />
+                <img src="images/NHBTStats.PNG" alt="Stats view" />
             </div>
             <div class="image-grid-item">
-                <img src="/images/NHBTTeamPage.PNG" alt="Image 6" />
+                <img src="images/NHBTTeamPage.PNG" alt="Team detail" />
             </div>
         </div>
+        </main>
         <div id="footer"></div>
     </body>
 </html>

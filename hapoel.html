@@ -2,40 +2,41 @@
 <html lang="en-US">
     <head>
         <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="header.css" type="text/css" />
         <link rel="stylesheet" href="index.css" type="text/css" />
+        <link rel="stylesheet" href="footer.css" type="text/css" />
+        <title>Hapoel Jerusalem · Joshua Leeman</title>
         <script>
             fetch("header.html")
                 .then((res) => res.text())
                 .then((data) => {
                     document.getElementById("header").innerHTML = data;
+                    const navLinks = document.querySelectorAll("#nav a");
+                    const path = window.location.pathname || "";
+                    navLinks.forEach((link) => {
+                        if (path.endsWith(link.getAttribute("href") || "")) link.classList.add("active");
+                    });
                 });
             fetch("footer.html")
                 .then((res) => res.text())
                 .then((data) => {
                     document.getElementById("footer").innerHTML = data;
-
-                    document
-                        .querySelector(".back-to-top")
-                        .addEventListener("click", function (e) {
-                            e.preventDefault();
-                            const scrollTop =
-                                window.pageYOffset ||
-                                document.documentElement.scrollTop;
-                            if (scrollTop > 0) {
-                                window.scrollTo({
-                                    top: 0,
-                                    behavior: "smooth",
-                                });
-                            }
-                        });
+                    document.querySelector(".back-to-top")?.addEventListener("click", function (e) {
+                        e.preventDefault();
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                    });
                 });
         </script>
     </head>
-    <body>
+    <body class="project-detail">
         <div id="header"></div>
-        <h4>Hapoel Jerusalem: Data to Graphs</h4>
-        <img src="/images/FC_Hapoel_Jerusalem_2021.png" alt="NHBTLogo" />
-        <p>
+        <main class="page-content">
+            <h4>Hapoel Jerusalem: Data to Graphs</h4>
+            <div class="hero-image">
+                <img src="images/FC_Hapoel_Jerusalem_2021.png" alt="Hapoel Jerusalem" />
+            </div>
+            <p>
             The Head Coach of the Hapoel Jerusalem Soccer Team has hours and
             hours of game footage to scour through and needs to quickly identify trends
             that lead to team success. My boss, the Head of Data Analytics,
@@ -63,19 +64,16 @@
             within seconds. He can then identify trends and patterns for team
             success and make decisions more efficiently.
         </p>
-        <a
-            href="https://github.com/joshleeman11/Hapoel-Jerusalem-Shots"
-            target="_blank"
-            ><p>Link to GitHub Repository</p></a
-        >
+        <a href="https://github.com/joshleeman11/Hapoel-Jerusalem-Shots" target="_blank" rel="noopener">Link to GitHub Repository</a>
         <div class="image-grid">
             <div class="hapoel-image-grid-item">
-                <img src="/images/HapoelPageScreenshot1.png" alt="Image 1" />
+                <img src="images/HapoelPageScreenshot1.png" alt="Shot visualization 1" />
             </div>
             <div class="hapoel-image-grid-item">
-                <img src="/images/HapoelPageScreenshot2.png" alt="Image 2" />
+                <img src="images/HapoelPageScreenshot2.png" alt="Shot visualization 2" />
             </div>
         </div>
+        </main>
         <div id="footer"></div>
     </body>
 </html>

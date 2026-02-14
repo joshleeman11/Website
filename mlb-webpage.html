@@ -2,43 +2,41 @@
 <html lang="en-US">
     <head>
         <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="header.css" type="text/css" />
         <link rel="stylesheet" href="index.css" type="text/css" />
+        <link rel="stylesheet" href="footer.css" type="text/css" />
+        <title>Redesigned MLB Webpage · Joshua Leeman</title>
         <script>
             fetch("header.html")
                 .then((res) => res.text())
                 .then((data) => {
                     document.getElementById("header").innerHTML = data;
+                    const navLinks = document.querySelectorAll("#nav a");
+                    const path = window.location.pathname || "";
+                    navLinks.forEach((link) => {
+                        if (path.endsWith(link.getAttribute("href") || "")) link.classList.add("active");
+                    });
                 });
             fetch("footer.html")
                 .then((res) => res.text())
                 .then((data) => {
                     document.getElementById("footer").innerHTML = data;
-
-                    document
-                        .querySelector(".back-to-top")
-                        .addEventListener("click", function (e) {
-                            e.preventDefault();
-                            const scrollTop =
-                                window.pageYOffset ||
-                                document.documentElement.scrollTop;
-                            if (scrollTop > 0) {
-                                window.scrollTo({
-                                    top: 0,
-                                    behavior: "smooth",
-                                });
-                            }
-                        });
+                    document.querySelector(".back-to-top")?.addEventListener("click", function (e) {
+                        e.preventDefault();
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                    });
                 });
         </script>
     </head>
-    <body>
+    <body class="project-detail">
         <div id="header"></div>
-        <h4>Redesigned MLB Webpage</h4>
-        <img
-            src="/images/kisspng-mlb-new-york-mets-world-baseball-classic-major-lea-bet-5ac07113332e23.0834441615225612992096.png"
-            alt="NHBTLogo"
-        />
-        <p>
+        <main class="page-content">
+            <h4>Redesigned MLB Webpage</h4>
+            <div class="hero-image">
+                <img src="images/kisspng-mlb-new-york-mets-world-baseball-classic-major-lea-bet-5ac07113332e23.0834441615225612992096.png" alt="MLB" />
+            </div>
+            <p>
             As a Software Engineer Intern on MLB's Data Platform team, our goal
             was to ensure the data that fans see on popular websites, like
             MLB.com, accurately updated constantly. Typically, data is kept in a
@@ -81,15 +79,16 @@
         </video>
         <div class="image-grid">
             <div class="image-grid-item">
-                <img src="/images/MLBPageScreenshot1.PNG" alt="Image 1" />
+                <img src="images/MLBPageScreenshot1.PNG" alt="MLB cache tool screenshot 1" />
             </div>
             <div class="image-grid-item">
-                <img src="/images/MLBPageScreenshot2.PNG" alt="Image 2" />
+                <img src="images/MLBPageScreenshot2.PNG" alt="MLB cache tool screenshot 2" />
             </div>
             <div class="image-grid-item">
-                <img src="/images/MLBPageScreenshot3.PNG" alt="Image 3" />
+                <img src="images/MLBPageScreenshot3.PNG" alt="MLB cache tool screenshot 3" />
             </div>
         </div>
+        </main>
         <div id="footer"></div>
     </body>
 </html>

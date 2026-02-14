@@ -3,34 +3,44 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="header.css" type="text/css" />
         <link rel="stylesheet" href="index.css" type="text/css" />
-        <title>Joshua Leeman Website</title>
+        <link rel="stylesheet" href="footer.css" type="text/css" />
+        <title>Joshua Leeman · Work</title>
         <script>
             fetch("header.html")
                 .then((res) => res.text())
                 .then((data) => {
                     document.getElementById("header").innerHTML = data;
                     const navLinks = document.querySelectorAll("#nav a");
+                    const path = window.location.pathname || "";
                     navLinks.forEach((link) => {
-                        if (link.href === window.location.href) {
-                            link.classList.add("active");
-                        }
+                        const href = link.getAttribute("href") || "";
+                        const isActive = path.endsWith(href) || (path.endsWith("/") && href === "index.html");
+                        if (isActive) link.classList.add("active");
                     });
                 })
-                .catch((error) =>
-                    console.error("Error fetching header:", error)
-                );
+                .catch((error) => console.error("Error fetching header:", error));
+            fetch("footer.html")
+                .then((res) => res.text())
+                .then((data) => {
+                    document.getElementById("footer").innerHTML = data;
+                    document.querySelector(".back-to-top")?.addEventListener("click", function (e) {
+                        e.preventDefault();
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                    });
+                });
         </script>
     </head>
     <body>
         <div id="header"></div>
         <div id="projects">
             <div class="project">
-                <a href="/nhbt-app.html"
-                    ><img src="/images/NHBTLogo.png" alt="Logo" />
+                <a href="nhbt-app.html"
+                    ><img src="images/NHBTLogo.png" alt="Logo" />
                     <img
                         class="hoverImage"
-                        src="/images/NHBTStandings.PNG"
+                        src="images/NHBTStandings.PNG"
                         alt="Standings"
                     />
                     <p class="project-title">
@@ -41,14 +51,14 @@
                 </a>
             </div>
             <div class="project">
-                <a href="/mlb-webpage.html"
+                <a href="mlb-webpage.html"
                     ><img
-                        src="/images/kisspng-mlb-new-york-mets-world-baseball-classic-major-lea-bet-5ac07113332e23.0834441615225612992096.png"
+                        src="images/kisspng-mlb-new-york-mets-world-baseball-classic-major-lea-bet-5ac07113332e23.0834441615225612992096.png"
                         alt="Logo"
                     />
                     <img
                         class="hoverImage"
-                        src="/images/MLBScreenshot.png"
+                        src="images/MLBScreenshot.png"
                         alt="Webpage"
                     />
                     <p class="project-title">
@@ -59,16 +69,15 @@
                 </a>
             </div>
             <div class="project">
-                <a href="/hapoel.html"
+                <a href="hapoel.html"
                     ><img
-                        src="/images/FC_Hapoel_Jerusalem_2021.png"
+                        src="images/FC_Hapoel_Jerusalem_2021.png"
                         alt="Logo"
                     />
                     <img
                         class="hoverImage"
-                        src="/images/HapoelScreenshot.png"
+                        src="images/HapoelScreenshot.png"
                         alt="Possession Graph"
-                        style="transform: translateY(35px) scale(1.7)"
                     />
                     <div class="project-label">
                         <p class="project-title">
@@ -81,5 +90,6 @@
                 </a>
             </div>
         </div>
+        <div id="footer"></div>
     </body>
 </html>

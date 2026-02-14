@@ -41,7 +41,7 @@ body {
 /* Typography */
 h4 {
     font-weight: 600;
-    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-size: clamp(1.7rem, 4.5vw, 2.25rem);
     letter-spacing: -0.02em;
     margin: 2rem 0 1rem;
     color: var(--color-text);
@@ -49,7 +49,7 @@ h4 {
 
 p {
     font-weight: 400;
-    font-size: 1.05rem;
+    font-size: 1.2rem;
     color: var(--color-text);
     margin: 0 0 1rem;
     max-width: var(--max-width-text);
@@ -142,7 +142,7 @@ p {
     right: 0;
     margin: 0;
     padding: 1rem 1.25rem;
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 600;
     color: #fff;
     background: linear-gradient(transparent, var(--color-overlay));
@@ -152,7 +152,7 @@ p {
 
 .project-year {
     display: block;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     font-weight: 500;
     opacity: 0.9;
     margin-top: 0.2rem;

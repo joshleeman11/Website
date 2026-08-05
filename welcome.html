@@ -1,71 +1,13 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en">
     <head>
         <meta charset="UTF-8" />
+        <meta http-equiv="refresh" content="0; url=index.html" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="header.css" type="text/css" />
-        <link rel="stylesheet" href="index.css" type="text/css" />
-        <link rel="stylesheet" href="footer.css" type="text/css" />
-        <title>Joshua Leeman · Welcome</title>
-        <script defer src="/_vercel/insights/script.js"></script>
-        <script>
-            fetch("header.html")
-                .then((res) => res.text())
-                .then((data) => {
-                    document.getElementById("header").innerHTML = data;
-                    const navLinks = document.querySelectorAll("#nav a");
-                    const path = window.location.pathname || "";
-                    navLinks.forEach((link) => {
-                        const href = link.getAttribute("href") || "";
-                        if (path.endsWith(href)) link.classList.add("active");
-                    });
-                })
-                .catch((error) =>
-                    console.error("Error fetching header:", error)
-                );
-            fetch("footer.html")
-                .then((res) => res.text())
-                .then((data) => {
-                    document.getElementById("footer").innerHTML = data;
-
-                    document
-                        .querySelector(".back-to-top")
-                        ?.addEventListener("click", function (e) {
-                            e.preventDefault();
-                            const scrollTop =
-                                window.pageYOffset ||
-                                document.documentElement.scrollTop;
-                            if (scrollTop > 0) {
-                                window.scrollTo({
-                                    top: 0,
-                                    behavior: "smooth",
-                                });
-                            }
-                        });
-                });
-        </script>
+        <title>Joshua Leeman · Redirecting</title>
+        <link rel="canonical" href="index.html" />
     </head>
     <body>
-        <div id="header"></div>
-        <main class="page-content">
-            <div class="rounded-image">
-                <img src="images/Headshot.jpg" alt="Headshot" />
-            </div>
-            <p>
-                In the Work section, you can find three of my proudest projects
-                from my various internships and extracurriculars throughout my
-                college experience: the National Hillel Basketball Tournament App,
-                the redesigned NORAD Cache Jobs website at Major League Baseball,
-                and a coaching visualization tool for the Hapoel Jerusalem Soccer Team.
-            </p>
-            <p>
-                These projects showcase my ability to develop software
-                applications that solve real problems—using my foundation in
-                programming while quickly learning new tools to deliver strong
-                products. This is my portfolio of full-stack
-                development work as a Software Engineer.
-            </p>
-        </main>
-        <div id="footer"></div>
+        <p><a href="index.html">Continue to portfolio →</a></p>
     </body>
 </html>

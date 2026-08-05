@@ -1,96 +1,424 @@
-<!DOCTYPE html>
-<html lang="en-US">
+<!doctype html>
+<html lang="en">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="header.css" type="text/css" />
-        <link rel="stylesheet" href="index.css" type="text/css" />
-        <link rel="stylesheet" href="footer.css" type="text/css" />
-        <title>Joshua Leeman · Work</title>
+        <meta
+            name="description"
+            content="Joshua Leeman — Software Engineer building real-time data products across sports, ML, and full-stack systems."
+        />
+        <title>Joshua Leeman · Software Engineer</title>
+        <link rel="stylesheet" href="styles.css" />
         <script defer src="/_vercel/insights/script.js"></script>
-        <script>
-            fetch("header.html")
-                .then((res) => res.text())
-                .then((data) => {
-                    document.getElementById("header").innerHTML = data;
-                    const navLinks = document.querySelectorAll("#nav a");
-                    const path = window.location.pathname || "";
-                    navLinks.forEach((link) => {
-                        const href = link.getAttribute("href") || "";
-                        const isActive = path.endsWith(href) || (path.endsWith("/") && href === "index.html");
-                        if (isActive) link.classList.add("active");
-                    });
-                })
-                .catch((error) => console.error("Error fetching header:", error));
-            fetch("footer.html")
-                .then((res) => res.text())
-                .then((data) => {
-                    document.getElementById("footer").innerHTML = data;
-                    document.querySelector(".back-to-top")?.addEventListener("click", function (e) {
-                        e.preventDefault();
-                        window.scrollTo({ top: 0, behavior: "smooth" });
-                    });
-                });
-        </script>
+        <script defer src="main.js"></script>
     </head>
     <body>
-        <div id="header"></div>
-        <div id="projects">
-            <div class="project">
-                <a href="nhbt-app.html"
-                    ><img src="images/NHBTLogo.png" alt="Logo" />
-                    <img
-                        class="hoverImage"
-                        src="images/NHBTStandings.PNG"
-                        alt="Standings"
-                    />
-                    <p class="project-title">
-                        NHBT App <br /><span class="project-year"
-                            >2024</span
-                        >
-                    </p>
-                </a>
+        <nav class="site-nav-bar" aria-label="Main navigation">
+            <div class="container nav-inner">
+                <a class="nav-logo" href="#top">Joshua <span>Leeman</span></a>
+                <button
+                    class="nav-toggle"
+                    type="button"
+                    aria-expanded="false"
+                    aria-controls="nav-menu"
+                    aria-label="Toggle menu"
+                >
+                    <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                    >
+                        <path d="M4 7h16M4 12h16M4 17h16" />
+                    </svg>
+                </button>
+                <ul class="nav-links" id="nav-menu">
+                    <li><a href="#stories">Stories</a></li>
+                    <li><a href="#curiosity">Curiosity</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
             </div>
-            <div class="project">
-                <a href="mlb-webpage.html"
-                    ><img
-                        src="images/kisspng-mlb-new-york-mets-world-baseball-classic-major-lea-bet-5ac07113332e23.0834441615225612992096.png"
-                        alt="Logo"
-                    />
-                    <img
-                        class="hoverImage"
-                        src="images/MLBScreenshot.png"
-                        alt="Webpage"
-                    />
-                    <p class="project-title">
-                        Redesigned MLB Webpage<br /><span class="project-year"
-                            >2023</span
-                        >
-                    </p>
-                </a>
-            </div>
-            <div class="project">
-                <a href="hapoel.html"
-                    ><img
-                        src="images/FC_Hapoel_Jerusalem_2021.png"
-                        alt="Logo"
-                    />
-                    <img
-                        class="hoverImage"
-                        src="images/HapoelScreenshot.png"
-                        alt="Possession Graph"
-                    />
-                    <div class="project-label">
-                        <p class="project-title">
-                            Hapoel Jerusalem: Data to Graphs<br /><span
-                                class="project-year"
-                                >2022</span
-                            >
-                        </p>
+        </nav>
+
+        <main id="top">
+            <section class="hero">
+                <div class="container">
+                    <p class="hero-eyebrow">Software Engineer · NYC</p>
+                    <div class="hero-grid">
+                        <div class="hero-content">
+                            <div class="hero-block hero-block--headline">
+                                <h1 class="hero-headline">
+                                    <span class="hero-line hero-line--builder">
+                                        <span class="hero-line-text"
+                                            >I'm a builder.</span
+                                        >
+                                    </span>
+                                    <span class="hero-line hero-line--people">
+                                        <span class="hero-line-text"
+                                            >I like people.</span
+                                        >
+                                    </span>
+                                    <span class="hero-line hero-line--curious">
+                                        <span class="hero-line-text"
+                                            >I'm open to being wrong.</span
+                                        >
+                                    </span>
+                                </h1>
+                            </div>
+
+                            <div class="hero-block hero-block--summary">
+                                <p class="hero-lead">
+                                    I build AI-powered full-stack products for
+                                    web and mobile. I enjoy working with people
+                                    and delivering meaningful value.
+                                </p>
+                            </div>
+
+                            <div class="hero-actions">
+                                <a class="btn btn-primary" href="#stories"
+                                    >Read my stories</a
+                                >
+                                <a
+                                    class="btn btn-secondary"
+                                    href="https://www.linkedin.com/in/joshua-leeman"
+                                    target="_blank"
+                                    rel="noopener"
+                                    >LinkedIn</a
+                                >
+                            </div>
+
+                            <div class="hero-block hero-block--stats">
+                                <div class="stats-grid">
+                                    <div class="stat-card">
+                                        <div class="stat-value">3+</div>
+                                        <div class="stat-label">
+                                            Years building 0-1
+                                        </div>
+                                    </div>
+                                    <div class="stat-card">
+                                        <div class="stat-value">MS ML/AI</div>
+                                        <div class="stat-label">
+                                            New York University
+                                        </div>
+                                    </div>
+                                    <div class="stat-card">
+                                        <div class="stat-value">BS CS</div>
+                                        <div class="stat-label">
+                                            University of Maryland
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hero-photo-wrap">
+                            <img
+                                class="hero-photo"
+                                src="images/Headshot.jpg"
+                                alt="Joshua Leeman headshot"
+                                width="320"
+                                height="480"
+                            />
+                        </div>
                     </div>
-                </a>
+                </div>
+            </section>
+
+            <section class="section section--stories" id="stories">
+                <div class="container">
+                    <header class="section-header section-header--stories">
+                        <h2 class="section-eyebrow section-eyebrow--stories">
+                            Case studies
+                        </h2>
+                    </header>
+
+                    <div class="story-widgets">
+                        <a class="story-widget" href="inventoryquant.html">
+                            <img
+                                class="story-widget-bg"
+                                src="images/IQLogo.png"
+                                alt=""
+                                aria-hidden="true"
+                            />
+                            <div class="story-widget-content">
+                                <div class="story-widget-text">
+                                    <h3>InventoryQuant</h3>
+                                    <p class="story-widget-meta">
+                                        Y Combinator W26
+                                    </p>
+                                    <p class="story-widget-hook">
+                                        AI-powered inventory processing built
+                                        for insurance companies
+                                    </p>
+                                </div>
+                                <span class="story-widget-cta"
+                                    >Read story →</span
+                                >
+                            </div>
+                        </a>
+
+                        <a class="story-widget" href="nhbt-app.html">
+                            <img
+                                class="story-widget-bg"
+                                src="images/NHBTLogo.png"
+                                alt=""
+                                aria-hidden="true"
+                            />
+                            <div class="story-widget-content">
+                                <div class="story-widget-text">
+                                    <h3>
+                                        National Hillel Basketball Tournament
+                                    </h3>
+                                    <p class="story-widget-hook">
+                                        Basketball tournament mobile app
+                                        designed for 1,000+ users
+                                    </p>
+                                </div>
+                                <span class="story-widget-cta"
+                                    >Read story →</span
+                                >
+                            </div>
+                        </a>
+
+                        <a class="story-widget" href="mlb-webpage.html">
+                            <img
+                                class="story-widget-bg"
+                                src="images/kisspng-mlb-new-york-mets-world-baseball-classic-major-lea-bet-5ac07113332e23.0834441615225612992096.png"
+                                alt=""
+                                aria-hidden="true"
+                            />
+                            <div class="story-widget-content">
+                                <div class="story-widget-text">
+                                    <h3>MLB</h3>
+                                    <p class="story-widget-hook">
+                                        Internal tool ensuring data accuracy
+                                        during live games
+                                    </p>
+                                </div>
+                                <span class="story-widget-cta"
+                                    >Read story →</span
+                                >
+                            </div>
+                        </a>
+
+                        <a class="story-widget" href="hapoel.html">
+                            <img
+                                class="story-widget-bg"
+                                src="images/FC_Hapoel_Jerusalem_2021.png"
+                                alt=""
+                                aria-hidden="true"
+                            />
+                            <div class="story-widget-content">
+                                <div class="story-widget-text">
+                                    <h3>Hapoel Jerusalem Soccer Team</h3>
+                                    <p class="story-widget-hook">
+                                        Sports analytics and data visualization
+                                        automatation
+                                    </p>
+                                </div>
+                                <span class="story-widget-cta"
+                                    >Read story →</span
+                                >
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="skills">
+                <div class="container">
+                    <header class="section-header">
+                        <p class="section-eyebrow">Capabilities</p>
+                        <h2>Technical depth &amp; How I Build</h2>
+                    </header>
+
+                    <div class="skills-grid">
+                        <div class="skill-column">
+                            <h3>Skills</h3>
+                            <ul>
+                                <li>
+                                    <strong>Languages:</strong> TypeScript,
+                                    Python, JavaScript, Java
+                                </li>
+                                <li>
+                                    <strong>Frameworks &amp; libraries:</strong>
+                                    React, Next.js, NestJS, FastAPI, Flask,
+                                    Flutter, React Native, Drizzle ORM
+                                </li>
+                                <li>
+                                    <strong>Databases:</strong> PostgreSQL,
+                                    Firestore, MongoDB
+                                </li>
+                                <li>
+                                    <strong>Cloud &amp; infrastructure:</strong>
+                                    AWS (S3, Lambda, Step Functions), Docker,
+                                    Terraform, Trigger.dev
+                                </li>
+                                <li>
+                                    <strong>AI &amp; LLM:</strong> OpenAI API,
+                                    Gemini API, LLM Fine-Tuning, AI-assisted
+                                    Development (Cursor, Claude Code)
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="skill-column">
+                            <h3>Before I Write Code</h3>
+                            <ul>
+                                <li>Understand the product spec</li>
+                                <li>Define data models and API contracts</li>
+                                <li>
+                                    Map flows: user action → frontend → backend
+                                    → database
+                                </li>
+                                <li>Design modular components and services</li>
+                                <li>Consider edge cases and failure modes</li>
+                                <li>Align architecture with the team</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="about">
+                <div class="container">
+                    <header class="section-header">
+                        <p class="section-eyebrow">About</p>
+                        <h2>Meet Joshua</h2>
+                    </header>
+
+                    <div class="about-interview">
+                        <div class="qa-block">
+                            <p class="question">Who am I?</p>
+                            <blockquote class="about-pullquote">
+                                I'm a software engineer who seeks to provide
+                                value for people with AI.
+                            </blockquote>
+                            <p class="answer">
+                                I work hard and I'm driven by the idea that we
+                                can
+                                <strong
+                                    >harness the power of AI to make people's
+                                    lives better</strong
+                                >.
+                            </p>
+                        </div>
+                        <div class="qa-block">
+                            <p class="question">How do you work with others?</p>
+                            <blockquote class="about-pullquote">
+                                I'd rather empower a teammate than optimize for
+                                short-term speed.
+                            </blockquote>
+                            <p class="answer">
+                                A newly joined engineer was struggling on work I
+                                didn't have bandwidth for. It would've been
+                                faster to do it myself, but I guided him
+                                instead, pointing him in the right direction
+                                while letting him
+                                <strong>own the task</strong>. He finished,
+                                gained confidence, and our trust grew. That's
+                                the team I want to be a part of: patient,
+                                supportive, and aligned around a shared goal.
+                            </p>
+                        </div>
+                        <div class="qa-block">
+                            <p class="question">
+                                What kind of problems do you love?
+                            </p>
+                            <p class="answer">
+                                I'm drawn to complex problems where the solution
+                                depends on understanding how many moving pieces
+                                interact. In
+                                <strong>everyday life</strong>, that might mean
+                                figuring out how to get 7 people to dinner in 30
+                                minutes, 15 miles away, across 2 cars, when
+                                one car is low on gas. In
+                                <strong>software engineering</strong>, it means
+                                designing systems that scale to thousands of
+                                users, handle real-time data, and balance
+                                constraints like performance, reliability, and
+                                cost.
+                            </p>
+                        </div>
+                        <div class="qa-block">
+                            <p class="question">How do you handle setbacks?</p>
+                            <blockquote class="about-pullquote">
+                                I don't call it wasted work, I call it learning
+                            </blockquote>
+                            <p class="answer">
+                                I learn from mistakes, and solving the problem
+                                is the priority, not defending your first
+                                approach. Once, I spent days on a solution that
+                                turned out not to be the right fit, but I didn't
+                                call it wasted work, I called it learning.
+                                <strong
+                                    >Pivoting is part of the process.</strong
+                                >
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section contact-section" id="contact">
+                <div class="container">
+                    <header class="section-header">
+                        <p class="section-eyebrow">Contact</p>
+                        <h2>Let's connect</h2>
+                        <p class="section-intro">
+                            Open to conversations about software engineering,
+                            sports data, ML, or anything you're curious about
+                            too.
+                        </p>
+                    </header>
+
+                    <div class="contact-grid">
+                        <a
+                            class="contact-card"
+                            href="https://www.linkedin.com/in/joshua-leeman"
+                            target="_blank"
+                            rel="noopener"
+                        >
+                            <span class="contact-label">LinkedIn</span>
+                            <span class="contact-value">Connect with me →</span>
+                        </a>
+                        <a
+                            class="contact-card"
+                            href="https://github.com/joshleeman11"
+                            target="_blank"
+                            rel="noopener"
+                        >
+                            <span class="contact-label">GitHub</span>
+                            <span class="contact-value">joshleeman11 →</span>
+                        </a>
+                        <a
+                            class="contact-card"
+                            href="mailto:joshleeman11@gmail.com"
+                        >
+                            <span class="contact-label">Email</span>
+                            <span class="contact-value"
+                                >joshleeman11@gmail.com</span
+                            >
+                        </a>
+                        <div class="contact-card">
+                            <span class="contact-label">Location</span>
+                            <span class="contact-value">New York, NY</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <div class="container">
+                <a class="back-to-top" href="#top">↑ Back to top</a>
+                <p>
+                    © 2026 Joshua Leeman · Software Engineer · Full-Stack ·
+                    ML/AI
+                </p>
             </div>
-        </div>
-        <div id="footer"></div>
+        </footer>
     </body>
 </html>

@@ -1,87 +1,120 @@
-<!DOCTYPE html>
-<html lang="en-US">
+<!doctype html>
+<html lang="en">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="header.css" type="text/css" />
-        <link rel="stylesheet" href="index.css" type="text/css" />
-        <link rel="stylesheet" href="footer.css" type="text/css" />
         <title>NHBT App · Joshua Leeman</title>
+        <link rel="stylesheet" href="styles.css" />
         <script defer src="/_vercel/insights/script.js"></script>
+        <script defer src="main.js"></script>
         <script>
             fetch("header.html")
                 .then((res) => res.text())
                 .then((data) => {
                     document.getElementById("header").innerHTML = data;
-                    const navLinks = document.querySelectorAll("#nav a");
-                    const path = window.location.pathname || "";
-                    navLinks.forEach((link) => {
-                        if (path.endsWith(link.getAttribute("href") || "")) link.classList.add("active");
-                    });
                 });
             fetch("footer.html")
                 .then((res) => res.text())
                 .then((data) => {
                     document.getElementById("footer").innerHTML = data;
-                    document.querySelector(".back-to-top")?.addEventListener("click", function (e) {
-                        e.preventDefault();
-                        window.scrollTo({ top: 0, behavior: "smooth" });
-                    });
+                    document
+                        .querySelector(".back-to-top")
+                        ?.addEventListener("click", function (e) {
+                            e.preventDefault();
+                            window.scrollTo({ top: 0, behavior: "smooth" });
+                        });
                 });
         </script>
     </head>
-    <body class="project-detail">
+    <body>
         <div id="header"></div>
         <main class="page-content">
-            <h4>NHBT App</h4>
-            <div class="hero-image">
-                <img src="images/NHBTLogo.png" alt="NHBT App logo" />
+            <a class="back-link" href="index.html#stories">← Back to stories</a>
+
+            <header class="story-page-header">
+                <img
+                    class="story-page-logo"
+                    src="images/NHBTLogo.png"
+                    alt="NHBT App logo"
+                />
+                <div class="story-page-header-text">
+                    <h1>NHBT Tournament App</h1>
+                    <p class="page-meta">
+                        National Hillel Basketball Tournament · Software
+                        Engineer · 2024
+                    </p>
+                </div>
+            </header>
+
+            <div class="story-page-body">
+                <div class="qa-block">
+                    <p class="question">What was the problem?</p>
+                    <p class="answer">
+                        A national basketball tournament with dozens of teams
+                        needed one place for players, coaches, and families to
+                        follow <strong>live scores, brackets, standings, and
+                        stats</strong>—without refreshing a clunky spreadsheet
+                        or asking someone at the scorer's table.
+                    </p>
+                </div>
+                <div class="qa-block">
+                    <p class="question">What did I build to solve it?</p>
+                    <p class="answer">
+                        My teammate and I built the full app in
+                        <strong>Flutter</strong>, wired it to a
+                        <strong>Firebase</strong> backend for real-time updates,
+                        and stayed in constant contact with game operations to
+                        match tournament rules—tier structures, stat tracking,
+                        half-based games, and more. In March 2024,
+                        <strong>over 1,000 people</strong> used the app across
+                        the tournament weekend on iOS and Android.
+                    </p>
+                </div>
             </div>
-            <a href="https://apps.apple.com/us/app/hillel-tournament/id1615144055" target="_blank" rel="noopener">Link to App Store</a>
-            <p>
-            The National Hillel Basketball Tournament (NHBT) App is your
-            one-stop-shop for all the action throughout the tournament. You can
-            track live game updates, standings, brackets, schedules, player and
-            team information, and statistics. My teammate and I are proud to say
-            that, in March 2024, over 1000 players, fans, and family from across the country
-            enjoyed the NHBT App over the course of the weekend tournament.
-        </p>
-        <p>
-            We used Flutter to build our app for iOS and Android users and its
-            Dart language to code our front-end user interface. We then
-            integrated our front-end with our back-end Firebase database to
-            share all the live information with our users. In addition to the
-            full-stack logic that was required to build our app, one of the
-            biggest lessons I learned was the importance of communication
-            between organizational teams in delivering the best product. We were
-            in constant communication with the game operations team to ensure
-            our app's features aligned with the tournament rules. For example,
-            we needed to know how many teams there would be in each tier of
-            standings. We also had to know how many men and women tiers there would
-            be. Lastly, we had to confirm the games would consist of halves
-            rather than quarters and which games would track assists and
-            rebounds, in addition to points and fouls.
-        </p>
-        <div class="image-grid">
-            <div class="image-grid-item">
-                <img src="images/NHBTHomePage.jpeg" alt="NHBT home screen" />
+
+            <div class="story-page-outcomes">
+                <span class="outcome-pill">1,000+ users in one weekend</span>
+                <span class="outcome-pill">Live scores, brackets &amp; stats</span>
+                <span class="outcome-pill">Flutter · Firebase · Real-time data</span>
             </div>
-            <div class="image-grid-item">
-                <img src="images/NHBTBracket.jpeg" alt="Tournament bracket" />
+
+            <div class="page-actions">
+                <a
+                    href="https://apps.apple.com/us/app/hillel-tournament/id1615144055"
+                    target="_blank"
+                    rel="noopener"
+                    >View on the App Store →</a
+                >
             </div>
-            <div class="image-grid-item">
-                <img src="images/NHBTStandings.PNG" alt="Standings" />
+
+            <div class="story-page-media">
+                <div class="image-grid">
+                    <div class="image-grid-item">
+                        <img
+                            src="images/NHBTHomePage.jpeg"
+                            alt="NHBT home screen"
+                        />
+                    </div>
+                    <div class="image-grid-item">
+                        <img
+                            src="images/NHBTBracket.jpeg"
+                            alt="Tournament bracket"
+                        />
+                    </div>
+                    <div class="image-grid-item">
+                        <img src="images/NHBTStandings.PNG" alt="Standings" />
+                    </div>
+                    <div class="image-grid-item">
+                        <img src="images/NHBTTeamsPage.PNG" alt="Teams list" />
+                    </div>
+                    <div class="image-grid-item">
+                        <img src="images/NHBTStats.PNG" alt="Stats view" />
+                    </div>
+                    <div class="image-grid-item">
+                        <img src="images/NHBTTeamPage.PNG" alt="Team detail" />
+                    </div>
+                </div>
             </div>
-            <div class="image-grid-item">
-                <img src="images/NHBTTeamsPage.PNG" alt="Teams list" />
-            </div>
-            <div class="image-grid-item">
-                <img src="images/NHBTStats.PNG" alt="Stats view" />
-            </div>
-            <div class="image-grid-item">
-                <img src="images/NHBTTeamPage.PNG" alt="Team detail" />
-            </div>
-        </div>
         </main>
         <div id="footer"></div>
     </body>

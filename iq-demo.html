@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>InventoryQuant Demo · Joshua Leeman</title>
+        <link rel="stylesheet" href="styles.css" />
+        <script defer src="/_vercel/insights/script.js"></script>
+        <script defer src="main.js"></script>
+        <script defer src="iq-demo.js"></script>
+        <script>
+            fetch("header.html")
+                .then((res) => res.text())
+                .then((data) => {
+                    document.getElementById("header").innerHTML = data;
+                });
+            fetch("footer.html")
+                .then((res) => res.text())
+                .then((data) => {
+                    document.getElementById("footer").innerHTML = data;
+                    document
+                        .querySelector(".back-to-top")
+                        ?.addEventListener("click", function (e) {
+                            e.preventDefault();
+                            window.scrollTo({ top: 0, behavior: "smooth" });
+                        });
+                });
+        </script>
+    </head>
+    <body>
+        <div id="header"></div>
+        <main class="page-content">
+            <a class="back-link" href="index.html#stories">← Back to stories</a>
+
+            <header class="iq-demo-intro">
+                <img
+                    class="iq-demo-intro-logo"
+                    src="images/IQLogo.png"
+                    alt="InventoryQuant logo"
+                />
+                <h1>InventoryQuant Demo</h1>
+                <p>
+                    Upload a video walkthrough. AI transcribes it, extracts item
+                    photos, and finds prices.
+                </p>
+            </header>
+
+            <div class="iq-demo" aria-label="InventoryQuant demo">
+                <div class="iq-demo-upload">
+                    <div>
+                        <span class="iq-demo-file-label">Video</span>
+                        <span class="iq-demo-file-name"
+                            >living-room-walkthrough.mp4</span
+                        >
+                    </div>
+                    <button class="iq-demo-process" type="button">Run</button>
+                </div>
+                <ol class="iq-demo-pipeline">
+                    <li class="iq-demo-step">Upload</li>
+                    <li class="iq-demo-step">Transcribe</li>
+                    <li class="iq-demo-step">Get images</li>
+                    <li class="iq-demo-step">Find prices</li>
+                </ol>
+                <div class="iq-demo-output" hidden>
+                    <div class="iq-demo-transcript-wrap">
+                        <span class="iq-demo-transcript-label">Transcript</span>
+                        <p class="iq-demo-transcript"></p>
+                    </div>
+                    <div>
+                        <span class="iq-demo-images-label">Item photos</span>
+                        <div class="iq-demo-images"></div>
+                    </div>
+                    <div class="iq-demo-table-wrap">
+                        <span class="iq-demo-table-label">Inventory</span>
+                        <table class="iq-demo-table">
+                            <thead>
+                                <tr>
+                                    <th>Item</th>
+                                    <th>Qty</th>
+                                    <th>Store</th>
+                                    <th>Price</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <div id="footer"></div>
+    </body>
+</html>

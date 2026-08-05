@@ -1,94 +1,112 @@
-<!DOCTYPE html>
-<html lang="en-US">
+<!doctype html>
+<html lang="en">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="header.css" type="text/css" />
-        <link rel="stylesheet" href="index.css" type="text/css" />
-        <link rel="stylesheet" href="footer.css" type="text/css" />
-        <title>Redesigned MLB Webpage · Joshua Leeman</title>
+        <title>MLB Cache Tool · Joshua Leeman</title>
+        <link rel="stylesheet" href="styles.css" />
         <script defer src="/_vercel/insights/script.js"></script>
+        <script defer src="main.js"></script>
         <script>
             fetch("header.html")
                 .then((res) => res.text())
                 .then((data) => {
                     document.getElementById("header").innerHTML = data;
-                    const navLinks = document.querySelectorAll("#nav a");
-                    const path = window.location.pathname || "";
-                    navLinks.forEach((link) => {
-                        if (path.endsWith(link.getAttribute("href") || "")) link.classList.add("active");
-                    });
                 });
             fetch("footer.html")
                 .then((res) => res.text())
                 .then((data) => {
                     document.getElementById("footer").innerHTML = data;
-                    document.querySelector(".back-to-top")?.addEventListener("click", function (e) {
-                        e.preventDefault();
-                        window.scrollTo({ top: 0, behavior: "smooth" });
-                    });
+                    document
+                        .querySelector(".back-to-top")
+                        ?.addEventListener("click", function (e) {
+                            e.preventDefault();
+                            window.scrollTo({ top: 0, behavior: "smooth" });
+                        });
                 });
         </script>
     </head>
-    <body class="project-detail">
+    <body>
         <div id="header"></div>
         <main class="page-content">
-            <h4>Redesigned MLB Webpage</h4>
-            <div class="hero-image">
-                <img src="images/kisspng-mlb-new-york-mets-world-baseball-classic-major-lea-bet-5ac07113332e23.0834441615225612992096.png" alt="MLB" />
+            <a class="back-link" href="index.html#stories">← Back to stories</a>
+
+            <header class="story-page-header">
+                <img
+                    class="story-page-logo"
+                    src="images/kisspng-mlb-new-york-mets-world-baseball-classic-major-lea-bet-5ac07113332e23.0834441615225612992096.png"
+                    alt="Major League Baseball"
+                />
+                <div class="story-page-header-text">
+                    <h1>MLB Cache Management Tool</h1>
+                    <p class="page-meta">
+                        Major League Baseball · Software Engineer Intern · 2023
+                    </p>
+                </div>
+            </header>
+
+            <div class="story-page-body">
+                <div class="qa-block">
+                    <p class="question">What was the problem?</p>
+                    <p class="answer">
+                        When a player hits a home run, fans expect stats to
+                        update immediately on MLB.com. But cached data can't
+                        update while it's cached—so the Data Platform team
+                        needed a reliable internal tool to
+                        <strong>clear the right cache entries at the right
+                        time</strong>, without breaking anything during a live
+                        game.
+                    </p>
+                </div>
+                <div class="qa-block">
+                    <p class="question">What did I build to solve it?</p>
+                    <p class="answer">
+                        I redesigned the internal NORAD Cache Jobs website for
+                        speed and safety. Using
+                        <strong>HTML, JavaScript, and React</strong>, I
+                        organized inputs into required vs. optional parameters,
+                        added validation against internal MLB APIs (sportId,
+                        leagueId, etc.), built a bulk Excel upload feature, and
+                        used React state to block invalid submissions before
+                        they hit production.
+                    </p>
+                </div>
             </div>
-            <p>
-            As a Software Engineer Intern on MLB's Data Platform team, our goal
-            was to ensure the data that fans see on popular websites, like
-            MLB.com, accurately updated constantly. Typically, data is kept in a
-            computer's cache if we want it to reload immediately. The downside
-            is that data can't be updated while it is in the cache.
-        </p>
-        <p>
-            So what happens when a player hits a home run and his stats need to
-            be updated immediately? My job surrounded an internal website that
-            was responsible for clearing data from the cache when it needed to
-            be updated.
-        </p>
-        <p>
-            I was tasked with redesigning this website to make it more
-            user-friendly and allow employees to clear a robust amount data from
-            the cache more efficiently.
-        </p>
-        <p>
-            I used HTML, Javascript, and React to implement the numerous
-            features, as seen below in the video and screenshots. HTML helped me
-            organize the page into 'Required' and 'Optional' parameters that
-            previously hadn't existed before. It also helped me highlight
-            incorrectly inputted text fields.
-        </p>
-        <p>
-            Additionally, I used Javascript to validate all user input.
-            Specifically, I used certain libraries and other internal MLB APIs
-            to check whether a certain sportId or leagueId, for example, matched
-            a currently existing one. I also used Javascript to code a file
-            upload feature that parsed an uploaded excel file with data to be
-            submitted all at once.
-        </p>
-        <p>
-            Lastly, I used React to track the state of the page in order to
-            notify the user of any missing required parameters and disabled the
-            'Submit' button accordingly to prevent any invalid submissions.
-        </p>
-        <video width="800" controls>
-            <source src="images/Tech Intern Presentation Demo copy.mov" type="video/mp4" />
-        </video>
-        <div class="image-grid">
-            <div class="image-grid-item">
-                <img src="images/MLBPageScreenshot1.PNG" alt="MLB cache tool screenshot 1" />
+
+            <div class="story-page-outcomes">
+                <span class="outcome-pill">Redesigned internal cache UI</span>
+                <span class="outcome-pill">API-backed input validation</span>
+                <span class="outcome-pill">Bulk Excel upload for cache clears</span>
             </div>
-            <div class="image-grid-item">
-                <img src="images/MLBPageScreenshot2.PNG" alt="MLB cache tool screenshot 2" />
+
+            <div class="story-page-media">
+                <video width="800" controls>
+                    <source
+                        src="images/Tech Intern Presentation Demo copy.mov"
+                        type="video/mp4"
+                    />
+                </video>
+                <div class="image-grid">
+                    <div class="image-grid-item">
+                        <img
+                            src="images/MLBPageScreenshot1.PNG"
+                            alt="MLB cache tool screenshot 1"
+                        />
+                    </div>
+                    <div class="image-grid-item">
+                        <img
+                            src="images/MLBPageScreenshot2.PNG"
+                            alt="MLB cache tool screenshot 2"
+                        />
+                    </div>
+                    <div class="image-grid-item">
+                        <img
+                            src="images/MLBPageScreenshot3.PNG"
+                            alt="MLB cache tool screenshot 3"
+                        />
+                    </div>
+                </div>
             </div>
-            <div class="image-grid-item">
-                <img src="images/MLBPageScreenshot3.PNG" alt="MLB cache tool screenshot 3" />
-            </div>
-        </div>
         </main>
         <div id="footer"></div>
     </body>

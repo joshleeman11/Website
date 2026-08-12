@@ -50,33 +50,50 @@
                     <p class="question">What was the problem?</p>
                     <p class="answer">
                         When a player hits a home run, fans expect stats to
-                        update immediately on MLB.com. But cached data can't
-                        update while it's cached—so the Data Platform team
-                        needed a reliable internal tool to
-                        <strong>clear the right cache entries at the right
-                        time</strong>, without breaking anything during a live
-                        game.
+                        update immediately on MLB.com, but cached data can't
+                        refresh until those entries are cleared. The
+                        Data Platform team needed a tool to
+                        <strong
+                            >clear only the appropriate cache entries on
+                            demand</strong
+                        >.
                     </p>
                 </div>
                 <div class="qa-block">
                     <p class="question">What did I build to solve it?</p>
                     <p class="answer">
-                        I redesigned the internal NORAD Cache Jobs website for
-                        speed and safety. Using
-                        <strong>HTML, JavaScript, and React</strong>, I
+                        I redesigned MLB's internal NORAD Cache Jobs page for
+                        safety and accuracy. Using
+                        <strong>JavaScript, React, and SQL</strong>, I
                         organized inputs into required vs. optional parameters,
-                        added validation against internal MLB APIs (sportId,
+                        added validation against MLB's Stats APIs (sportId,
                         leagueId, etc.), built a bulk Excel upload feature, and
                         used React state to block invalid submissions before
                         they hit production.
                     </p>
                 </div>
-            </div>
 
-            <div class="story-page-outcomes">
-                <span class="outcome-pill">Redesigned internal cache UI</span>
-                <span class="outcome-pill">API-backed input validation</span>
-                <span class="outcome-pill">Bulk Excel upload for cache clears</span>
+                <div class="story-page-stats">
+                    <div class="story-page-stat">
+                        <strong class="story-page-stat-num"
+                            >100+ MLB engineers</strong
+                        >
+                        <span class="story-page-stat-label">live demo</span>
+                    </div>
+                    <div class="story-page-stat">
+                        <strong class="story-page-stat-num"
+                            >Used by Data Platform team</strong
+                        >
+                        <span class="story-page-stat-label"
+                            >data accuracy tool</span
+                        >
+                    </div>
+                </div>
+                <div class="story-page-tags">
+                    <span class="skill-tag">React</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">SQL</span>
+                </div>
             </div>
 
             <div class="story-page-media">

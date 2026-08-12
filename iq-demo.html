@@ -29,8 +29,10 @@
     </head>
     <body>
         <div id="header"></div>
-        <main class="page-content">
-            <a class="back-link" href="index.html#stories">← Back to stories</a>
+        <main class="page-content iq-demo-page">
+            <a class="back-link" href="inventoryquant.html"
+                >← Back to InventoryQuant</a
+            >
 
             <header class="iq-demo-intro">
                 <img
@@ -38,51 +40,163 @@
                     src="images/IQLogo.png"
                     alt="InventoryQuant logo"
                 />
-                <h1>InventoryQuant Demo</h1>
-                <p>
-                    Upload a video walkthrough. AI transcribes it, extracts item
-                    photos, and finds prices.
-                </p>
+                <h1>See it in Action</h1>
             </header>
 
             <div class="iq-demo" aria-label="InventoryQuant demo">
-                <div class="iq-demo-upload">
-                    <div>
-                        <span class="iq-demo-file-label">Video</span>
+                <div class="iq-demo-toolbar">
+                    <div class="iq-demo-file">
+                        <span class="iq-demo-file-label">Input</span>
                         <span class="iq-demo-file-name"
-                            >living-room-walkthrough.mp4</span
+                            >bedroom-walkthrough.mp4</span
                         >
                     </div>
-                    <button class="iq-demo-process" type="button">Run</button>
+                    <div class="iq-demo-controls">
+                        <button class="iq-demo-process" type="button">
+                            Run pipeline
+                        </button>
+                        <button
+                            class="iq-demo-pause"
+                            type="button"
+                            disabled
+                            aria-pressed="false"
+                        >
+                            Pause
+                        </button>
+                    </div>
+                    <ol class="iq-demo-pipeline" aria-label="Pipeline steps">
+                        <li class="iq-demo-step">Transcribe</li>
+                        <li class="iq-demo-step">Extract photos</li>
+                        <li class="iq-demo-step">Price items</li>
+                    </ol>
+                    <div class="iq-demo-status" role="status">
+                        Ready when you are.
+                    </div>
                 </div>
-                <ol class="iq-demo-pipeline">
-                    <li class="iq-demo-step">Upload</li>
-                    <li class="iq-demo-step">Transcribe</li>
-                    <li class="iq-demo-step">Get images</li>
-                    <li class="iq-demo-step">Find prices</li>
-                </ol>
-                <div class="iq-demo-output" hidden>
-                    <div class="iq-demo-transcript-wrap">
-                        <span class="iq-demo-transcript-label">Transcript</span>
-                        <p class="iq-demo-transcript"></p>
+
+                <div class="iq-demo-body">
+                    <div class="iq-demo-col iq-demo-col--media">
+                        <section class="iq-demo-quadrant iq-demo-quadrant--video">
+                            <div class="iq-demo-stage">
+                            <div class="iq-demo-scene" aria-hidden="false">
+                                <img
+                                    class="iq-demo-scene-img"
+                                    src="images/iq-demo/bedroom-scene.png"
+                                    alt="Bedroom walkthrough"
+                                />
+                                <div class="iq-demo-scene-shade"></div>
+                                <div class="iq-demo-scene-grid"></div>
+                                <span
+                                    class="iq-demo-scene-corner iq-demo-scene-corner--tl"
+                                ></span>
+                                <span
+                                    class="iq-demo-scene-corner iq-demo-scene-corner--tr"
+                                ></span>
+                                <span
+                                    class="iq-demo-scene-corner iq-demo-scene-corner--bl"
+                                ></span>
+                                <span
+                                    class="iq-demo-scene-corner iq-demo-scene-corner--br"
+                                ></span>
+                                <span class="iq-demo-rec">
+                                    <span class="iq-demo-rec-dot"></span> REC
+                                </span>
+                                <span class="iq-demo-timer">00:18</span>
+                                <span class="iq-demo-scan"></span>
+                                <div class="iq-demo-focus" hidden>
+                                    <span class="iq-demo-focus-label"></span>
+                                </div>
+                                <div class="iq-demo-audio">
+                                    <span class="iq-demo-audio-label"
+                                        >AUDIO</span
+                                    >
+                                    <div
+                                        class="iq-demo-wave"
+                                        aria-hidden="true"
+                                    >
+                                        <i></i><i></i><i></i><i></i><i></i
+                                        ><i></i><i></i><i></i><i></i><i></i
+                                        ><i></i><i></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="iq-demo-stage-caption">
+                                Bedroom walkthrough · REC 00:18
+                            </p>
+                        </div>
+                        </section>
+
+                        <section
+                            class="iq-demo-quadrant iq-demo-quadrant--transcript iq-demo-step-panel is-empty"
+                            aria-label="Transcript"
+                        >
+                            <span class="iq-demo-step-panel-label"
+                                >Transcript</span
+                            >
+                            <div class="iq-demo-transcript-wrap">
+                                <p
+                                    class="iq-demo-transcript-sizer"
+                                    aria-hidden="true"
+                                >
+                                    I'm in the bedroom here and I see a twin bed
+                                    with a stuffed teddy bear to its side. Above
+                                    the bed, there are three poster drawings and
+                                    two pendant lamps. Next item is a desk chair.
+                                    One ladder and one bookshelf.
+                                </p>
+                                <p
+                                    class="iq-demo-transcript iq-demo-placeholder"
+                                >
+                                    Speech-to-text appears here…
+                                </p>
+                            </div>
+                        </section>
                     </div>
-                    <div>
-                        <span class="iq-demo-images-label">Item photos</span>
-                        <div class="iq-demo-images"></div>
-                    </div>
-                    <div class="iq-demo-table-wrap">
-                        <span class="iq-demo-table-label">Inventory</span>
-                        <table class="iq-demo-table">
-                            <thead>
-                                <tr>
-                                    <th>Item</th>
-                                    <th>Qty</th>
-                                    <th>Store</th>
-                                    <th>Price</th>
-                                </tr>
-                            </thead>
-                            <tbody></tbody>
-                        </table>
+
+                    <div class="iq-demo-col iq-demo-col--output">
+                        <section
+                            class="iq-demo-quadrant iq-demo-quadrant--extract iq-demo-step-panel is-empty"
+                            aria-label="Extracted photos"
+                        >
+                            <span class="iq-demo-step-panel-label"
+                                >Extracted photos</span
+                            >
+                            <p
+                                class="iq-demo-placeholder iq-demo-extract-empty"
+                            >
+                                Item frames appear here…
+                            </p>
+                            <div class="iq-demo-extract-wrap">
+                                <div class="iq-demo-images"></div>
+                            </div>
+                        </section>
+
+                        <section
+                            class="iq-demo-quadrant iq-demo-quadrant--price iq-demo-step-panel is-empty"
+                            aria-label="Priced inventory"
+                        >
+                            <span class="iq-demo-step-panel-label"
+                                >Priced inventory</span
+                            >
+                            <div class="iq-demo-table-wrap">
+                                <p
+                                    class="iq-demo-placeholder iq-demo-table-empty"
+                                >
+                                    Replacement prices appear here…
+                                </p>
+                                <table class="iq-demo-table" hidden>
+                                    <thead>
+                                        <tr>
+                                            <th>Item</th>
+                                            <th>Qty</th>
+                                            <th>Store</th>
+                                            <th>Price</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </section>
                     </div>
                 </div>
             </div>

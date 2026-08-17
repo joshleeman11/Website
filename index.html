@@ -11,37 +11,27 @@
         <link rel="stylesheet" href="styles.css" />
         <script defer src="/_vercel/insights/script.js"></script>
         <script defer src="main.js"></script>
+        <script>
+            fetch("header.html")
+                .then((res) => res.text())
+                .then((data) => {
+                    document.getElementById("header").innerHTML = data;
+                });
+            fetch("footer.html")
+                .then((res) => res.text())
+                .then((data) => {
+                    document.getElementById("footer").innerHTML = data;
+                    document
+                        .querySelector(".back-to-top")
+                        ?.addEventListener("click", function (e) {
+                            e.preventDefault();
+                            window.scrollTo({ top: 0, behavior: "smooth" });
+                        });
+                });
+        </script>
     </head>
     <body>
-        <nav class="site-nav-bar" aria-label="Main navigation">
-            <div class="container nav-inner">
-                <a class="nav-logo" href="#top">Joshua <span>Leeman</span></a>
-                <button
-                    class="nav-toggle"
-                    type="button"
-                    aria-expanded="false"
-                    aria-controls="nav-menu"
-                    aria-label="Toggle menu"
-                >
-                    <svg
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                    >
-                        <path d="M4 7h16M4 12h16M4 17h16" />
-                    </svg>
-                </button>
-                <ul class="nav-links" id="nav-menu">
-                    <li><a href="#stories">Stories</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div>
-        </nav>
+        <div id="header"></div>
 
         <main id="top">
             <section class="hero">
@@ -237,7 +227,6 @@
             <section class="section" id="skills">
                 <div class="container">
                     <header class="section-header">
-                        <p class="section-eyebrow">Capabilities</p>
                         <h2>Technical depth &amp; How I Build</h2>
                     </header>
 
@@ -288,90 +277,9 @@
                 </div>
             </section>
 
-            <section class="section" id="about">
-                <div class="container">
-                    <header class="section-header">
-                        <p class="section-eyebrow">About</p>
-                        <h2>Meet Joshua</h2>
-                    </header>
-
-                    <div class="about-interview">
-                        <div class="qa-block">
-                            <p class="question">Who am I?</p>
-                            <blockquote class="about-pullquote">
-                                I'm a software engineer who seeks to provide
-                                value for people with AI.
-                            </blockquote>
-                            <p class="answer">
-                                I work hard and I'm driven by the idea that we
-                                can
-                                <strong
-                                    >harness the power of AI to make people's
-                                    lives better</strong
-                                >.
-                            </p>
-                        </div>
-                        <div class="qa-block">
-                            <p class="question">How do you work with others?</p>
-                            <blockquote class="about-pullquote">
-                                I'd rather empower a teammate than optimize for
-                                short-term speed.
-                            </blockquote>
-                            <p class="answer">
-                                A newly joined engineer was struggling on work I
-                                didn't have bandwidth for. It would've been
-                                faster to do it myself, but I guided him
-                                instead, pointing him in the right direction
-                                while letting him
-                                <strong>own the task</strong>. He finished,
-                                gained confidence, and our trust grew. That's
-                                the team I want to be a part of: patient,
-                                supportive, and aligned around a shared goal.
-                            </p>
-                        </div>
-                        <div class="qa-block">
-                            <p class="question">
-                                What kind of problems do you love?
-                            </p>
-                            <p class="answer">
-                                I'm drawn to complex problems where the solution
-                                depends on understanding how many moving pieces
-                                interact. In
-                                <strong>everyday life</strong>, that might mean
-                                figuring out how to get 7 people to dinner in 30
-                                minutes, 15 miles away, across 2 cars, when one
-                                car is low on gas. In
-                                <strong>software engineering</strong>, it means
-                                designing systems that scale to thousands of
-                                users, handle real-time data, and balance
-                                constraints like performance, reliability, and
-                                cost.
-                            </p>
-                        </div>
-                        <div class="qa-block">
-                            <p class="question">How do you handle setbacks?</p>
-                            <blockquote class="about-pullquote">
-                                I don't call it wasted work, I call it learning
-                            </blockquote>
-                            <p class="answer">
-                                I learn from mistakes, and solving the problem
-                                is the priority, not defending your first
-                                approach. Once, I spent days on a solution that
-                                turned out not to be the right fit, but I didn't
-                                call it wasted work, I called it learning.
-                                <strong
-                                    >Pivoting is part of the process.</strong
-                                >
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
             <section class="section contact-section" id="contact">
                 <div class="container">
                     <header class="section-header">
-                        <p class="section-eyebrow">Contact</p>
                         <h2>Let's connect</h2>
                         <p class="section-intro">
                             Open to conversations about software engineering,
@@ -417,14 +325,6 @@
             </section>
         </main>
 
-        <footer class="site-footer">
-            <div class="container">
-                <a class="back-to-top" href="#top">↑ Back to top</a>
-                <p>
-                    © 2026 Joshua Leeman · Software Engineer · Full-Stack ·
-                    ML/AI
-                </p>
-            </div>
-        </footer>
+        <div id="footer"></div>
     </body>
 </html>
